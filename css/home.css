@@ -82,13 +82,13 @@ body {
 
 /* image 1 */
 .hero::before {
-    background-image: url("banner1.png");
+    background-image: url("../banner1.png");
     animation-delay: 0s;
 }
 
 /* image 2 */
 .hero::after {
-    background-image: url("banner2.png");
+    background-image: url("../banner2.png");
     animation-delay: 10s;
 }
 
