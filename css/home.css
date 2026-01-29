@@ -1,0 +1,255 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #222222;
+}
+
+/* ================= GLOBAL ================= */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ================= HEADER ================= */
+.header {
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.logo img {
+    height: 80px;
+}
+
+/* NAVIGATION */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: 500;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* ================= HERO (SLOW CSS SLIDER) ================= */
+.hero {
+    position: relative;
+    height: 65vh;
+    overflow: hidden;
+}
+
+/* background layers */
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: heroFade 20s infinite ease-in-out;
+}
+
+/* image 1 */
+.hero::before {
+    background-image: url("../Images/banner1.png");
+    animation-delay: 0s;
+}
+
+/* image 2 */
+.hero::after {
+    background-image: url("../Images/banner2.png");
+    animation-delay: 10s;
+}
+
+/* smooth slow fade */
+@keyframes heroFade {
+    0%   { opacity: 0; }
+    10%  { opacity: 1; }
+    40%  { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* overlay & content */
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.55);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    color: #ffffff;
+    padding-left: 10%;
+    max-width: 650px;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* buttons */
+.btn-primary {
+    background: #f9a825;
+    color: #ffffff;
+    padding: 12px 26px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+/* ================= MISSION / VISION ================= */
+.mv {
+    padding: 70px 0;
+    background: #fafafa;
+}
+
+.mv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.mv-box {
+    padding: 35px;
+    border: 1px solid #eeeeee;
+}
+
+.mv-box.active {
+    background: #f9a825;
+    color: #ffffff;
+}
+
+/* ================= ABOUT ================= */
+.about {
+    padding: 90px 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.about-text h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.about-text p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555555;
+    margin-bottom: 25px;
+}
+
+.btn-secondary {
+    background: #0b3c7d;
+    color: #ffffff;
+    padding: 12px 26px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: #0b1c2d;
+    color: #ffffff;
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 8px;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        right: 20px;
+        top: 80px;
+        background: #ffffff;
+        flex-direction: column;
+        width: 200px;
+        padding: 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .mv-grid,
+    .about-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+}
