@@ -1,3 +1,4 @@
+/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
@@ -5,29 +6,40 @@
     font-family: 'Inter', sans-serif;
 }
 
+body {
+    color: #222;
+    background: #fff;
+    line-height: 1.6;
+}
+
+/* ================= GLOBAL ================= */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .header {
-    background: #fff;
+    background: #ffffff;
     border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 18px 0;
 }
 
 .logo img {
-    height: 80px;
+    height: 90px;
 }
 
+/* ================= NAVIGATION ================= */
 .nav-links {
     display: flex;
     list-style: none;
@@ -39,31 +51,39 @@
 
 .nav-links a {
     text-decoration: none;
-    color: #222;
+    color: #333;
     font-weight: 500;
 }
 
 .nav-links a.active {
-    color: #f6a000;
+    color: #f9a825;
 }
 
-/* CONTACT */
+/* HAMBURGER ICON */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ================= CONTACT SECTION ================= */
 .contact-section {
     padding: 80px 0;
 }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 60px;
 }
 
-/* LEFT */
+/* ================= LEFT SIDE ================= */
 .contact-left iframe {
     width: 100%;
     height: 360px;
-    border-radius: 14px;
     border: none;
+    border-radius: 14px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
@@ -75,7 +95,7 @@
 }
 
 .contact-icons div {
-    font-size: 28px;
+    font-size: 26px;
 }
 
 .contact-icons p {
@@ -83,7 +103,7 @@
     margin-top: 8px;
 }
 
-/* RIGHT */
+/* ================= RIGHT SIDE ================= */
 .contact-right h2 {
     font-size: 34px;
     margin-bottom: 30px;
@@ -102,25 +122,28 @@
 .contact-right input,
 .contact-right select {
     height: 52px;
+    padding: 0 22px;
     border-radius: 30px;
     border: 1px solid #ccc;
-    padding: 0 22px;
+    outline: none;
 }
 
 .contact-right textarea {
     height: 140px;
+    padding: 18px 22px;
     border-radius: 20px;
     border: 1px solid #ccc;
-    padding: 18px 22px;
     resize: none;
+    outline: none;
 }
 
-.row {
+.form-row {
     display: flex;
     gap: 18px;
 }
 
-button {
+/* BUTTON */
+.contact-right button {
     width: fit-content;
     padding: 14px 40px;
     background: #f6a000;
@@ -128,13 +151,14 @@ button {
     border-radius: 30px;
     font-weight: 700;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-button:hover {
+.contact-right button:hover {
     background: #e09200;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 .footer {
     background: #0b1c2d;
     color: #fff;
@@ -158,8 +182,79 @@ button:hover {
 .copy {
     text-align: center;
     margin-top: 30px;
+    font-size: 14px;
     opacity: 0.7;
 }
 
-/* RESPONSIVE */
-@media(max-width:900px){
+/* ================= RESPONSIVE ================= */
+
+/* TABLET & MOBILE */
+@media (max-width: 768px) {
+
+    /* NAVIGATION */
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 90px;
+        right: 20px;
+        background: #ffffff;
+        flex-direction: column;
+        width: 220px;
+        padding: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        z-index: 2000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 12px 0;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-icons {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .contact-left iframe {
+        height: 280px;
+    }
+
+    .contact-right h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .logo img {
+        height: 65px;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+
+    .container {
+        width: 95%;
+    }
+
+    .contact-right button {
+        width: 100%;
+        text-align: center;
+    }
+}
