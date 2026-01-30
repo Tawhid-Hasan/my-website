@@ -187,6 +187,7 @@ body {
 }
 
 /* ================= RESPONSIVE ================= */
+/* ================= RESPONSIVE ================= */
 
 /* TABLET & MOBILE */
 @media (max-width: 768px) {
@@ -264,4 +265,3 @@ body {
         text-align: center;
     }
 }
-
