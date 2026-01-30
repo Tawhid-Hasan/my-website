@@ -214,29 +214,35 @@ body {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+
     .nav-links {
         display: none;
         position: absolute;
-        top: 70px;
+        top: 90px;
         right: 20px;
-        background: #fff;
+        background: #ffffff;
         flex-direction: column;
-        width: 200px;
+        width: 220px;
         padding: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        border-radius: 6px;
+        z-index: 999;
+    }
+
+    /* 🔥 THIS LINE WAS MISSING */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 12px 0;
     }
 
     .menu-toggle {
         display: block;
     }
 
-    .mv-grid,
-    .about-grid,
     .footer-grid {
         grid-template-columns: 1fr;
     }
-
-    .hero-content h1 {
-        font-size: 36px;
-    }
 }
-
